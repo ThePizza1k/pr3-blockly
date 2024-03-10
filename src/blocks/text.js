@@ -68,7 +68,9 @@ const playerVar = {
         [ "frost time", "frost" ],
         [ "mouse x position", "mousex" ],
         [ "mouse y position", "mousey" ],
-        [ "coins", "coins"]
+        [ "coins", "coins"],
+        [ "outline color", "outline"],
+        [ "outline thickness", "outlinethickness"],
       ]
     }
   ],
@@ -109,7 +111,9 @@ const setPlayerVar = {
         [ "frost time", "frost" ],
         [ "mouse x position", "mousex" ],
         [ "mouse y position", "mousey" ],
-        [ "coins", "coins"]
+        [ "coins", "coins"],
+        [ "outline color", "outline"],
+        [ "outline thickness", "outlinethickness"],
       ]
     },
     {
@@ -184,7 +188,6 @@ const onGameStart = {
       "name": "code"
     }
   ],
-  "nextStatement": null,
   "colour": 55,
   "tooltip": "Runs the code within it when the match starts",
   "helpUrl": "https://pr3hub.com/lua/modules/game.html#start"
@@ -202,7 +205,6 @@ const onPlayerTick = {
       "name": "code"
     }
   ],
-  "nextStatement": null,
   "colour": 55,
   "tooltip": "Runs the code within it on every tick while the player is alive.",
   "helpUrl": "https://pr3hub.com/lua/modules/player.html#tick"
@@ -418,9 +420,78 @@ const playerChatColor = {
   "tooltip": "Sends a chat message with a specified text and color",
   "helpUrl": "https://pr3hub.com/lua/modules/player.html#chat"
 }
+
+const getRemotePlayer = {
+  "type" : "get_remote_player",
+  "message0" : "Remote player of index %1",
+  'args0' : [
+    {
+      "type": "input_value",
+      "name": "index",
+      "check": "Number",
+    }
+  ],
+  "colour" : 75,
+  "tooltip" : "Gets the remote player of a specified index",
+  "output" : "Player",
+}
+
+const getRemotePlayers = {
+  "type" : "get_remote_players",
+  "message0" : "List of all players",
+  "colour" : 75,
+  "tooltip" : "Gets a list of all players",
+  "output" : "Array",
+}
+
+const remoteVar = {
+  "type" : "remote_player_var",
+  "message0": "%1's %2",
+  'args0': [
+    {
+      "type": "input_value",
+      "name": "player",
+      "check": "Player",
+    },
+    {
+      "type": "field_dropdown",
+      "name": "var",
+      "options": [
+        [ "health", "health" ],
+        [ "rotation", "rotation" ],
+        [ "speed", "speed" ],
+        [ "jump", "jump" ],
+        [ "acceleration", "accel" ],
+        [ "x position", "x" ],
+        [ "y position", "y" ],
+        [ "outline color", "outline" ],
+        [ "outline thickness", "outlinethickness" ],
+        [ "opacity", "alpha" ],
+      ]
+    }
+  ],
+  "output": "Number",
+  "colour": 75,
+  "tooltip": "Retrieve data from a remote player",
+}
+
+const logicExists = {
+  "type" : "logic_exists",
+  "message0": "%1 exists",
+  'args0' : [
+    {
+      "type": "input_value",
+      "name": "item",
+    }
+  ],
+  "output": 'Boolean',
+  "colour": 210,
+  "tooltip": "Check if a value exists",
+}
 // Create the block definitions for the JSON-only blocks.
 // This does not register their definitions with Blockly.
 // This file has no side effects!
 export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
     [playerVar,setPlayerVar,playerAlert,playerChat,playerFinish,playerSafety,onGameStart,onPlayerTick,blockVar,getBlockAt,getBlock,
-  shatterBlock,removeBlock,blockGetVar,disableInput,hexRGB,playerChatColor]);
+  shatterBlock,removeBlock,blockGetVar,disableInput,hexRGB,playerChatColor,
+  getRemotePlayer,getRemotePlayers,remoteVar,logicExists]);

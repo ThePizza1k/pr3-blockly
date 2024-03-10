@@ -152,3 +152,26 @@ forBlock['player_chat_color'] = function (block, generator) {
   const code = `player.chat(${textCode},${innerColor})\n`;
   return code;
 }
+
+forBlock['get_remote_player'] = function(block, generator) {
+  const innerCode = generator.valueToCode(block, 'index',Order.NONE);
+  const code = `game.getPlayer(${innerCode})`;
+  return [code,Order.ATOMIC];
+}
+
+forBlock['get_remote_players'] = function(block, generator) {
+  return ["totable(game.getAllPlayers())",Order.ATOMIC];
+}
+
+forBlock['remote_player_var'] = function(block, generator) {
+  const innerPlayer = generator.valueToCode(block, 'player',Order.NONE);
+  const innerChoice = block.getFieldValue('var');
+  const code = `tolua(${innerPlayer}.${innerChoice})`;
+  return [code,Order.ATOMIC];
+}
+
+forBlock['logic_exists'] = function(block, generator) {
+  const innerObject = generator.valueToCode(block, 'item', Order.NONE);
+  const code = `type(tolua(${innerObject})) ~= "nil"`;
+  return [code,Order.RELATIONAL];
+}

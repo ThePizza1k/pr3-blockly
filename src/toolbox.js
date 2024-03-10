@@ -48,6 +48,10 @@ export const toolbox = {
           'kind': 'block',
           'type': 'logic_ternary',
         },
+        {
+          'kind': 'block',
+          'type': 'logic_exists',
+        },
       ],
     },
     {
@@ -665,6 +669,25 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'disable_input',
+        },
+      ]
+    },
+    {
+      'kind': 'category',
+      'name': 'Remote Player',
+      'colour': '75',
+      'contents': [
+        {
+          'kind': 'block',
+          'type': 'get_remote_player',
+        },
+        {
+          'kind': 'block',
+          'type': 'get_remote_players',
+        },
+        {
+          'kind': 'block',
+          'type': 'remote_player_var',
         },
       ]
     },

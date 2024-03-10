@@ -106,3 +106,49 @@ forBlock['block_shatter'] = function (block, generator) {
   const code = `${innerBlock}.shatter()\n`;
   return code;
 }
+
+forBlock['block_remove'] = function (block, generator) {
+  const innerBlock = generator.valueToCode(block, 'block', Order.HIGH);
+  const code = `${innerBlock}.remove()\n`;
+  return code;
+}
+
+forBlock['block_get_var'] = function (block, generator) {
+  const innerBlock = generator.valueToCode(block, 'block', Order.HIGH);
+  const innerChoice = block.getFieldValue('var');
+  const code = `tolua(${innerBlock}.${innerChoice})`;
+  return [code,Order.ATOMIC];
+}
+
+forBlock['disable_input'] = function (block, generator) {
+  const innerChoice = block.getFieldValue('var');
+  const innerVal = generator.valueToCode(block, 'ticks', Order.NONE);
+  const code = `player.disable${innerChoice}(${innerVal})\n`;
+  return code;
+}
+
+function decimalToHex(d, padding) {
+    var hex = Number(d).toString(16);
+    padding = typeof (padding) === "undefined" || padding === null ? padding = 2 : padding;
+
+    while (hex.length < padding) {
+        hex = "0" + hex;
+    }
+
+    return hex;
+}
+
+forBlock['hex_rgb'] = function (block,generator) {
+  const red = decimalToHex(block.getFieldValue('red'),2);
+  const green = decimalToHex(block.getFieldValue('green'),2);
+  const blue = decimalToHex(block.getFieldValue('blue'),2);
+  const code = `0x${red}${green}${blue}`;
+  return [code,Order.ATOMIC];
+}
+
+forBlock['player_chat_color'] = function (block, generator) {
+  const textCode = generator.valueToCode(block, 'text',Order.NONE);
+  const innerColor = generator.valueToCode(block, 'color', Order.NONE);
+  const code = `player.chat(${textCode},${innerColor})\n`;
+  return code;
+}

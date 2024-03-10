@@ -280,9 +280,147 @@ const shatterBlock = {
   'nextStatement': null,
   'previousStatement': null,
 }
+
+const removeBlock = {
+  "type" : "block_remove",
+  "message0" : "Remove %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "block",
+      "check" : "Block",
+    },
+  ],
+  "colour" : 15,
+  "tooltip" : "Removes the block",
+  "helpUrl" : "https://pr3hub.com/lua/modules/block.html",
+  'nextStatement': null,
+  'previousStatement': null,
+}
+
+const blockGetVar = {
+  'type' : 'block_get_var',
+  'message0' : "Block %1's %2",
+  'args0': [
+    {
+      "type": "input_value",
+      "name": "block",
+      "check" : "Block",
+    },
+    {
+      "type": "field_dropdown",
+      "name": "var",
+      "options": [
+        [ "health", "health" ],
+        [ "x position", "xpos" ],
+        [ "y position", "ypos" ],
+      ]
+    }
+  ],
+  'colour' : 15,
+  'tooltip' : "Get block information",
+  'helpUrl': "https://pr3hub.com/lua/modules/block.html",
+  "output": "Number",
+};
+
+const disableInput = {
+  'type' : 'disable_input',
+  'message0' : 'Disable %1 for %2 ticks',
+  'args0': [
+    {
+      "type": "field_dropdown",
+      "name": "var",
+      "options": [
+        [ "up", "up" ],
+        [ "down", "down" ],
+        [ "left", "left" ],
+        [ "right", "right" ],
+        [ "space", "space" ],
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "ticks",
+      "check": "Number"
+    }
+  ],
+  'colour' : 90,
+  'helpUrl': "https://pr3hub.com/lua/modules/player.html",
+  'nextStatement': null,
+  'previousStatement': null,
+};
+
+const hexRGB = {
+  "type": "hex_rgb",
+  "implicitAlign0": "RIGHT",
+  "message0": "RGB Color from %1 Red %2 %3 Green %4 %5 Blue %6",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "red",
+      "value": 0,
+      "min": 0,
+      "max": 255,
+      "precision": 1
+    },
+    {
+      "type": "input_dummy",
+      "align": "RIGHT"
+    },
+    {
+      "type": "field_number",
+      "name": "green",
+      "value": 0,
+      "min": 0,
+      "max": 255,
+      "precision": 1
+    },
+    {
+      "type": "input_dummy",
+      "align": "RIGHT"
+    },
+    {
+      "type": "field_number",
+      "name": "blue",
+      "value": 0,
+      "min": 0,
+      "max": 255,
+      "precision": 1
+    }
+  ],
+  "inputsInline": false,
+  "output": "Number",
+  "colour": 35,
+  "tooltip": "Specify a color with RGB values",
+}
+
+const playerChatColor = {
+  "type": "player_chat_color",
+  "message0": "Send a chat message with text %1 and color %2",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "text"
+    },
+    {
+      "type": "input_value",
+      "name": "color",
+      "check": "Number",
+      "align": "RIGHT"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 90,
+  "tooltip": "Sends a chat message with a specified text and color",
+  "helpUrl": "https://pr3hub.com/lua/modules/player.html#chat"
+}
 // Create the block definitions for the JSON-only blocks.
 // This does not register their definitions with Blockly.
 // This file has no side effects!
 export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
     [playerVar,setPlayerVar,playerAlert,playerChat,playerFinish,playerSafety,onGameStart,onPlayerTick,blockVar,getBlockAt,getBlock,
-  shatterBlock]);
+  shatterBlock,removeBlock,blockGetVar,disableInput,hexRGB,playerChatColor]);

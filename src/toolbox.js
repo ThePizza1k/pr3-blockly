@@ -601,6 +601,17 @@ export const toolbox = {
       ],
     },
     {
+      'kind' : 'category',
+      'name' : 'Colors',
+      'colour' : 35,
+      'contents' : [
+        {
+          'kind': 'block',
+          'type': 'hex_rgb',
+        },
+      ]
+    },
+    {
       'kind': 'sep',
     },
     {
@@ -641,11 +652,19 @@ export const toolbox = {
         },
         {
           'kind': 'block',
+          'type': 'player_chat_color',
+        },
+        {
+          'kind': 'block',
           'type': 'player_finish',
         },
         {
           'kind': 'block',
           'type': 'player_safety',
+        },
+        {
+          'kind': 'block',
+          'type': 'disable_input',
         },
       ]
     },
@@ -669,6 +688,14 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'block_shatter',
+        },
+        {
+          'kind': 'block',
+          'type': 'block_remove',
+        },
+        {
+          'kind': 'block',
+          'type': 'block_get_var',
         },
       ]
     },

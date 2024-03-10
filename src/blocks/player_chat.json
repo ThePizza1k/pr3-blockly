@@ -1,0 +1,18 @@
+[{
+  'type' : 'player_chat',
+  'message0' : 'Send a chat message with text %1 and a color of %2',
+  'args0': [
+    {
+      "type": "input_value",
+      "name": "text"
+    },
+    {
+      'type': 'input_value',
+      'name': 'color',
+    }
+  ],
+  'colour' : 90,
+  'helpUrl': "https://pr3hub.com/lua/modules/player.html",
+  'nextStatement': null,
+  'previousStatement': null,
+}]

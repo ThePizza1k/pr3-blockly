@@ -488,10 +488,58 @@ const logicExists = {
   "colour": 210,
   "tooltip": "Check if a value exists",
 }
+
+const setRemoteVar = {
+  "type" : "set_remote_player_var",
+  "message0": "Set %1 of %2 to %3",
+  'args0': [
+    {
+      "type": "field_dropdown",
+      "name": "var",
+      "options": [
+        [ "outline color", "outline" ],
+        [ "outline thickness", "outlinethickness" ],
+        [ "opacity", "alpha" ],
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "player",
+      "check": "Player",
+    },
+    {
+      "type": "input_value",
+      "name": "value",
+      "check": "Number",
+      "align": "RIGHT"
+    }
+  ],
+  
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 75,
+  "tooltip": "Set local data of a remote player",
+}
+
+const setTeam = {
+  "type" : "set_team",
+  "message0" : "Set player's team to %1",
+  "args0" : [
+    {
+      "type": "input_value",
+      "name": "team",
+    },
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 90,
+  "tooltip" : "Sets the player's team",
+}
+
 // Create the block definitions for the JSON-only blocks.
 // This does not register their definitions with Blockly.
 // This file has no side effects!
 export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
     [playerVar,setPlayerVar,playerAlert,playerChat,playerFinish,playerSafety,onGameStart,onPlayerTick,blockVar,getBlockAt,getBlock,
   shatterBlock,removeBlock,blockGetVar,disableInput,hexRGB,playerChatColor,
-  getRemotePlayer,getRemotePlayers,remoteVar,logicExists]);
+  getRemotePlayer,getRemotePlayers,remoteVar,logicExists,setRemoteVar,setTeam]);

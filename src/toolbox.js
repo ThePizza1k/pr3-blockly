@@ -670,6 +670,10 @@ export const toolbox = {
           'kind': 'block',
           'type': 'disable_input',
         },
+        {
+          'kind': 'block',
+          'type': 'set_team',
+        },
       ]
     },
     {
@@ -688,6 +692,10 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'remote_player_var',
+        },
+        {
+          'kind': 'block',
+          'type': 'set_remote_player_var',
         },
       ]
     },

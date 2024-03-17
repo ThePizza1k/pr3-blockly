@@ -175,3 +175,17 @@ forBlock['logic_exists'] = function(block, generator) {
   const code = `type(tolua(${innerObject})) ~= "nil"`;
   return [code,Order.RELATIONAL];
 }
+
+forBlock['set_remote_player_var'] = function(block, generator) {
+  const innerPlayer = generator.valueToCode(block, 'player',Order.NONE);
+  const innerChoice = block.getFieldValue('var');
+  const innerValue = generator.valueToCode(block, 'value',Order.NONE);
+  const code = `${innerPlayer}.${innerChoice} = ${innerValue}\n`;
+  return code;
+}
+
+forBlock['set_team'] = function (block, generator) {
+  const innerCode = generator.valueToCode(block, 'team',Order.NONE);
+  const code = `player.team = ${innerCode}\n`;
+  return code;
+}

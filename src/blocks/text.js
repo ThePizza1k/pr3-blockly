@@ -558,10 +558,82 @@ const playerKeyDown = {
   "tooltip": "Check if a player is holding down a main key",
 }
 
+const playSound = {
+  "type" : "play_sound",
+  "message0" : "Play the sound %1 with a volume of %2",
+  "args0" : [
+    {
+      "type": "field_dropdown",
+      "name": "sound",
+      "options": [
+        [ "jetpack", "0" ],
+        [ "level start", "1" ],
+        [ "sword", "2" ],
+        [ "lightning", "3" ],
+        [ "coin", "4" ],
+        [ "jump", "5" ],
+        [ "item block", "6" ],
+        [ "black hole", "7" ],
+        [ "rocket launcher", "8" ],
+        [ "shatter", "9" ],
+        [ "sad block", "10" ],
+        [ "laser gun hit", "11" ],
+        [ "ready", "12" ],
+        [ "explosion", "13" ],
+        [ "teleport", "14" ],
+        [ "match end", "15" ],
+        [ "shield", "16" ],
+        [ "shield extra", "17" ],
+        [ "bow draw", "18" ],
+        [ "water enter", "19" ],
+        [ "happy block", "20" ],
+        [ "speed burst end", "21" ],
+        [ "speed burst", "22" ],
+        [ "bump", "23" ],
+        [ "cheer", "24" ],
+        [ "laser gun shot", "25" ],
+        [ "ouch", "26" ],
+        [ "bouncy block", "27" ],
+        [ "bow fire", "28" ],
+        [ "water exit", "29" ],
+        [ "portable block", "30" ],
+        [ "superjump", "31" ],
+        [ "angel wings", "32" ],
+        [ "water effect 1", "33" ],
+        [ "water effect 2", "34" ],
+        [ "water effect 3", "35" ],
+        [ "water effect 4", "36" ],
+        [ "freeze ray", "37" ],
+        [ "snowball hit", "38" ],
+        [ "napalm", "39" ],
+        [ "heart", "40" ],
+        [ "C3 piano note", "41" ],
+        [ "D3 piano note", "42" ],
+        [ "E3 piano note", "43" ],
+        [ "F3 piano note", "44" ],
+        [ "G3 piano note", "45" ],
+        [ "A4 piano note", "46" ],
+        [ "B4 piano note", "47" ],
+        [ "C4 piano note", "48" ],
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "volume",
+      "check" : "Number",
+    },
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 90,
+  "tooltip" : "Sets the player's team",
+}
+
 // Create the block definitions for the JSON-only blocks.
 // This does not register their definitions with Blockly.
 // This file has no side effects!
 export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
     [playerVar,setPlayerVar,playerAlert,playerChat,playerFinish,playerSafety,onGameStart,onPlayerTick,blockVar,getBlockAt,getBlock,
   shatterBlock,removeBlock,blockGetVar,disableInput,hexRGB,playerChatColor,
-  getRemotePlayer,getRemotePlayers,remoteVar,logicExists,setRemoteVar,setTeam,playerKeyDown]);
+  getRemotePlayer,getRemotePlayers,remoteVar,logicExists,setRemoteVar,setTeam,playerKeyDown,
+  playSound]);

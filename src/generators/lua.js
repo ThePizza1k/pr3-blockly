@@ -195,3 +195,10 @@ forBlock["player_key_down"] = function (block, generator) {
   const code = `tolua(player.${innerChoice}pressed)`;
   return [code,Order.ATOMIC];
 }
+
+forBlock['play_sound'] = function (block, generator) {
+  const innerCode = generator.valueToCode(block, 'volume',Order.NONE);
+  const innerChoice = block.getFieldValue('sound');
+  const code = `player.playsound(${innerChoice},${innerCode})\n`;
+  return code;
+}

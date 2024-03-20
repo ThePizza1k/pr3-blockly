@@ -678,6 +678,10 @@ export const toolbox = {
           'kind': 'block',
           'type': 'player_key_down',
         },
+        {
+          'kind': 'block',
+          'type': 'play_sound',
+        },
       ]
     },
     {

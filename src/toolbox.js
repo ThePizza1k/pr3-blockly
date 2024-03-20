@@ -674,6 +674,10 @@ export const toolbox = {
           'kind': 'block',
           'type': 'set_team',
         },
+        {
+          'kind': 'block',
+          'type': 'player_key_down',
+        },
       ]
     },
     {

@@ -189,3 +189,9 @@ forBlock['set_team'] = function (block, generator) {
   const code = `player.team = ${innerCode}\n`;
   return code;
 }
+
+forBlock["player_key_down"] = function (block, generator) {
+  const innerChoice = block.getFieldValue('var');
+  const code = `tolua(player.${innerChoice}pressed)`;
+  return [code,Order.ATOMIC];
+}

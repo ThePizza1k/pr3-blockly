@@ -114,6 +114,7 @@ const setPlayerVar = {
         [ "coins", "coins"],
         [ "outline color", "outline"],
         [ "outline thickness", "outlinethickness"],
+        [ "opacity", "alpha"],
       ]
     },
     {
@@ -536,10 +537,31 @@ const setTeam = {
   "tooltip" : "Sets the player's team",
 }
 
+const playerKeyDown = {
+  "type" : "player_key_down",
+  "message0": "Player is holding %1",
+  'args0' : [
+    {
+      "type": "field_dropdown",
+      "name": "var",
+      "options": [
+        [ "down", "down" ],
+        [ "up", "up" ],
+        [ "left", "left" ],
+        [ "right", "right" ],
+        [ "space", "space" ],
+      ]
+    },
+  ],
+  "output": 'Boolean',
+  "colour": 90,
+  "tooltip": "Check if a player is holding down a main key",
+}
+
 // Create the block definitions for the JSON-only blocks.
 // This does not register their definitions with Blockly.
 // This file has no side effects!
 export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
     [playerVar,setPlayerVar,playerAlert,playerChat,playerFinish,playerSafety,onGameStart,onPlayerTick,blockVar,getBlockAt,getBlock,
   shatterBlock,removeBlock,blockGetVar,disableInput,hexRGB,playerChatColor,
-  getRemotePlayer,getRemotePlayers,remoteVar,logicExists,setRemoteVar,setTeam]);
+  getRemotePlayer,getRemotePlayers,remoteVar,logicExists,setRemoteVar,setTeam,playerKeyDown]);

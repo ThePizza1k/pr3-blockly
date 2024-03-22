@@ -738,6 +738,10 @@ export const toolbox = {
         },
         {
           'kind': 'block',
+          'type': 'teleport_to_pos',
+        },
+        {
+          'kind': 'block',
           'type': 'switch_blocks',
         },
       ]

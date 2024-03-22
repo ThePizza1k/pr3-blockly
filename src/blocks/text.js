@@ -661,6 +661,45 @@ const switchBlocks = {
   "helpUrl" : "https://pr3hub.com/lua/modules/level.html#switchblocks",
 }
 
+const teleportToPos = {
+  "type" : "teleport_to_pos",
+  "message0" : "Teleports %1 to (%2, %3) \nRemove Original %4 Replace target %5",
+  "args0" : [
+    {
+      "type": "input_value",
+      "name": "block",
+      "check": "Block",
+    },
+    {
+      "type": "input_value",
+      "name": "x",
+      "check": "Number",
+    },
+    {
+      "type": "input_value",
+      "name": "y",
+      "check": "Number",
+    },
+    {
+      "type": "field_checkbox",
+      "name": "remove",
+      "checked": true
+    },
+    {
+      "type": "field_checkbox",
+      "name": "replace",
+      "checked": false
+    },
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 15,
+  "tooltip": "Teleports a given block to a given position",
+}
+
+
+
 // Create the block definitions for the JSON-only blocks.
 // This does not register their definitions with Blockly.
 // This file has no side effects!
@@ -668,4 +707,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
     [playerVar,setPlayerVar,playerAlert,playerChat,playerFinish,playerSafety,onGameStart,onPlayerTick,blockVar,getBlockAt,getBlock,
   shatterBlock,removeBlock,blockGetVar,disableInput,hexRGB,playerChatColor,
   getRemotePlayer,getRemotePlayers,remoteVar,logicExists,setRemoteVar,setTeam,playerKeyDown,
-  playSound,switchBlocks]);
+  playSound,switchBlocks,teleportToPos]);

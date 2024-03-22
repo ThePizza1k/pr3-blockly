@@ -211,3 +211,14 @@ forBlock['switch_blocks'] = function (block, generator) {
   const code = `game.level.switchblocks(${x1},${y1},${x2},${y2})\n`;
   return code;
 }
+
+
+forBlock['teleport_to_pos'] = function (block, generator) {
+  const blockVal = generator.valueToCode(block, 'block', Order.NONE);
+  const x = generator.valueToCode(block, 'x',Order.NONE);
+  const y = generator.valueToCode(block, 'y',Order.NONE);
+  const c1 = block.getFieldValue('remove').toLowerCase();
+  const c2 = block.getFieldValue('replace').toLowerCase();
+  const code = `${blockVal}.teleporttopos(${x},${y},${c1},${c2})\n`;
+  return code;
+}

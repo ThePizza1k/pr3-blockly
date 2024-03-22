@@ -736,6 +736,10 @@ export const toolbox = {
           'kind': 'block',
           'type': 'block_get_var',
         },
+        {
+          'kind': 'block',
+          'type': 'switch_blocks',
+        },
       ]
     },
     {

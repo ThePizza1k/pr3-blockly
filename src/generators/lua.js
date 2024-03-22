@@ -202,3 +202,12 @@ forBlock['play_sound'] = function (block, generator) {
   const code = `player.playsound(${innerChoice},${innerCode})\n`;
   return code;
 }
+
+forBlock['switch_blocks'] = function (block, generator) {
+  const x1 = generator.valueToCode(block, 'x1',Order.NONE);
+  const y1 = generator.valueToCode(block, 'y1',Order.NONE);
+  const x2 = generator.valueToCode(block, 'x2',Order.NONE);
+  const y2 = generator.valueToCode(block, 'y2',Order.NONE);
+  const code = `game.level.switchblocks(${x1},${y1},${x2},${y2})\n`;
+  return code;
+}

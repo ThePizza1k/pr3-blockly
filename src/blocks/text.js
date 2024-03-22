@@ -629,6 +629,38 @@ const playSound = {
   "tooltip" : "Sets the player's team",
 }
 
+const switchBlocks = {
+  "type" : "switch_blocks",
+  "message0" : "Switch blocks at (%1, %2) and (%3,%4)",
+  "args0" : [
+    {
+      "type": "input_value",
+      "name": "x1",
+      "check": "Number",
+    },
+    {
+      "type": "input_value",
+      "name": "y1",
+      "check": "Number",
+    },
+    {
+      "type": "input_value",
+      "name": "x2",
+      "check": "Number",
+    },
+    {
+      "type": "input_value",
+      "name": "y2",
+      "check": "Number",
+    },
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 15,
+  "tooltip" : "Given the coordinates of two blocks, turn all blocks in the level of each type into the other.",
+  "helpUrl" : "https://pr3hub.com/lua/modules/level.html#switchblocks",
+}
+
 // Create the block definitions for the JSON-only blocks.
 // This does not register their definitions with Blockly.
 // This file has no side effects!
@@ -636,4 +668,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
     [playerVar,setPlayerVar,playerAlert,playerChat,playerFinish,playerSafety,onGameStart,onPlayerTick,blockVar,getBlockAt,getBlock,
   shatterBlock,removeBlock,blockGetVar,disableInput,hexRGB,playerChatColor,
   getRemotePlayer,getRemotePlayers,remoteVar,logicExists,setRemoteVar,setTeam,playerKeyDown,
-  playSound]);
+  playSound,switchBlocks]);
